@@ -1,0 +1,5 @@
+scalar Date
+
+#import Mutation.* from "authenticateSchema"
+#import Mutation.* from "clientSchema"
+#import Mutation.*, Query.* from "userSchema"

@@ -1,0 +1,4 @@
+.vscode
+datamongo
+node_modules
+npm-debug.log

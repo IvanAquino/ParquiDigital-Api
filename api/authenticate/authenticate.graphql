@@ -1,0 +1,19 @@
+enum AuthenticationTypes {
+    user
+    client
+}
+
+input AuthenticationRequest {
+    username: String!
+    password: String!
+    type: AuthenticationTypes
+}
+
+type AuthenticationResponse {
+    expiresIn: Int
+    token: String
+}
+
+type Mutation {
+    authenticate (input: AuthenticationRequest): AuthenticationResponse
+}

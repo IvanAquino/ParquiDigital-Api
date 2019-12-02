@@ -1,0 +1,15 @@
+input CreateClientRequest {
+    name: String!
+    email: String!
+    password: String!
+}
+
+type Client {
+    _id: String
+    name: String
+    email: String
+}
+
+type Mutation {
+    createClient (input: CreateClientRequest): Client
+}
