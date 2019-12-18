@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  graphql-service:
+  parquidigital-api:
     build: .
     depends_on: 
       - mongo
@@ -11,12 +11,11 @@ services:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     ports:
-      - 9001:9000
+      - 9000:9000
     command: npm run dev
 
   mongo:
     image: mongo:3.4.23
-    restart: always
     ports:
       - "27017:27017"
     restart: always

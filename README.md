@@ -1,90 +1,33 @@
-# Graphql starter multiple type authentication
+#ParquiDigital Api
+Concepto parquímetro digital
 
-## Usage
+## Stack
+- Apollo Graphql
+- Mongodb
+
+## Uso
 
 ```
 docker-compose build
 docker-compose up -d
 ```
 
-### Url
-localhost:9001
+Puede acceder al proyecto en 
 
-You can modify port in docker-compose.yaml file
+http://localhost:9000
+http://localhost:9000/graphql
 
+__Para la aplicación movil deberá exponer el puerto a la red local__
 
-## Mutations
-
-#### Create user mutation
+Ejemplo en ubuntu
 ```
-mutation createUser ($input: CreateUserRequest) {
-  createUser(input: $input) {
-    _id
-    name
-  }
-}
-```
-#### Create user mutation variables
-
-```
-{
-  "input": {
-    "name": "My name",
-    "email": "user@mail.com",
-    "password": "asdasd"
-  }
-}
+sudo ufw allow 9000
 ```
 
-#### Create client mutation
-```
-mutation createClient ($input: CreateClientRequest) {
-  createClient (input: $input) {
-    _id
-    name
-  }
-}
-```
-#### Create client mutation variables
+## Video demostración
+[https://youtu.be/kgtPD0c-p4s](https://youtu.be/kgtPD0c-p4s) 
 
-```
-{
-  "input": {
-    "name": "My name",
-    "email": "client@mail.com",
-    "password": "asdasd"
-  }
-}
-```
+## Proyectos relacionados
 
-#### Authenticate mutation
-```
-mutation authentication ($input: AuthenticationRequest) {
-  authenticate (input:$input) {
-    expiresIn
-    token
-  }
-}
-```
-
-#### Authenticate mutation variables for user
-```
-{
-  "input": {
-    "username": "user@mail.com",
-    "password": "asdasd",
-    "type": "user"
-  }
-}
-```
-
-#### Authenticate mutation variables for client
-```
-{
-  "input": {
-    "username": "client@mail.com",
-    "password": "asdasd",
-    "type": "client"
-  }
-}
-```
+- [Admin: https://github.com/IvanAquino/ParquiDigital-Admin](https://github.com/IvanAquino/ParquiDigital-Admin) 
+- [App: https://github.com/IvanAquino/Parquidigital-App](https://github.com/IvanAquino/Parquidigital-App) 

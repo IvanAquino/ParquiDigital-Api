@@ -19,16 +19,25 @@ const dateResolver = new GraphQLScalarType({
 
 const authenticateResolvers = require('./authenticate')
 const clientResolvers = require('./client')
+const parkedCarResolvers = require('./parkedCar')
+const parkingFeeResolvers = require('./parkingfee')
 const userResolvers = require('./user')
 
 module.exports = {
     Query: {
+        ...parkedCarResolvers.Query,
+        ...parkingFeeResolvers.Query,
         ...userResolvers.Query,
     },
     Mutation: {
         ...authenticateResolvers.Mutation,
         ...clientResolvers.Mutation,
+        ...parkingFeeResolvers.Mutation,
+        ...parkedCarResolvers.Mutation,
         ...userResolvers.Mutation,
+    },
+    Subscription: {
+        ...parkedCarResolvers.Subscription
     },
     Date: dateResolver
 }

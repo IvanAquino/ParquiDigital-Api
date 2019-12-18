@@ -1,5 +1,7 @@
 scalar Date
 
-#import Mutation.* from "authenticateSchema"
-#import Mutation.* from "clientSchema"
-#import Mutation.*, Query.* from "userSchema"
+#import Mutation.* from "authenticate/authenticate.graphql"
+#import Mutation.* from "client/client.graphql"
+#import Mutation.*, Query.* from "user/user.graphql"
+#import Mutation.*, Query.*, Subscription.* from "parkedCar/parkedCar.graphql"
+#import Mutation.*, Query.* from "parkingfee/parkingfee.graphql"

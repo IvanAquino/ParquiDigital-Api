@@ -1,0 +1,36 @@
+type Point {
+    type: String
+    coordinates: [Float]
+}
+
+type ParkedCar {
+    _id: String
+    client: Client
+    parkingFee: ParkingFee
+    finishAt: String
+    licensePlate: String
+    time: Int
+    total: Float
+    location: Point
+}
+
+input CreateParkedCarRequest {
+    parkingFeeId: String!
+    licensePlate: String!
+    time: Int!
+    coordinates: [Float]!
+}
+
+type Query {
+    activeParkedCars: [ParkedCar]
+    myActiveParkedCar: ParkedCar
+    myParkedCars: [ParkedCar]
+}
+
+type Mutation {
+    createParkedCar (input: CreateParkedCarRequest): ParkedCar
+}
+
+type Subscription {
+    createdParkedCar: ParkedCar
+}

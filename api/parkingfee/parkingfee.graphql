@@ -1,0 +1,36 @@
+type Polygon {
+    type: String
+    coordinates: [[[Float]]]
+}
+input PolygonInput {
+    type: String
+    coordinates: [[[Float]]]
+}
+
+type ParkingFee {
+    _id: String
+    area: Polygon
+    name: String
+    perHour: Float
+}
+
+input CreateParkingFeeRequest {
+    area: PolygonInput!
+    name: String!
+    perHour: Float!
+}
+input DeleteParkingFeeRequest {
+    parkingFeeId: String!
+}
+input NearParkingFeesRequest {
+    screenBounds: PolygonInput!
+}
+
+type Query {
+    parkingFees: [ParkingFee]
+    nearParkingFees (input: NearParkingFeesRequest): [ParkingFee]
+}
+type Mutation {
+    createParkingFee (input: CreateParkingFeeRequest): ParkingFee
+    deleteParkingFee (input: DeleteParkingFeeRequest): String
+}
